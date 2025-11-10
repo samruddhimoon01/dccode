@@ -1,0 +1,28 @@
+experiment 6
+clc;
+clear;
+close;
+exec("C:\Program Files\scilab-2025.0.0\pskmod.sci", -1);
+exec("C:\Program Files\scilab-2025.0.0\qammod (1).sci", -1);
+
+N = 4;
+M = 2^N;
+x = 0:M-1;
+
+// PSK Modulation
+z = pskmod(x, M);
+scf(0);
+subplot(1,2,1);
+scatter(real(z), imag(z), "fill");
+h = gca();
+h.data_bounds = [-1.5, 1.5,-1.5, 1.5];
+xtitle('M-ary PSK', 'In-phase', 'Quadrature');
+
+// QAM Modulation
+y = qammod(x, M);
+
+subplot(1,2,2);
+scatter(real(y), imag(y), "fill");
+h = gca();
+h.data_bounds = [-3.5, 3.5, -3.5, 3.5];
+xtitle('M-QAM', 'In-phase', 'Quadrature');
