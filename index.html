@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>My Code Library</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: white;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #38bdf8;
+    }
+
+    .code-box {
+        background: #1e293b;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #334155;
+    }
+
+    .code-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #fbbf24;
+    }
+
+    pre {
+        background: #0f172a;
+        padding: 12px;
+        border-radius: 8px;
+        overflow-x: auto;
+        border: 1px solid #334155;
+        color: #cbd5e1;
+    }
+
+    button {
+        margin-top: 8px;
+        padding: 8px 14px;
+        background: #38bdf8;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        color: #0f172a;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: #0ea5e9;
+    }
+</style>
+</head>
+<body>
+
+<h1>My Code Library</h1>
+
+<!-- ✨ START ADDING YOUR CODES BELOW THIS LINE ✨ -->
+
+<div class="code-box">
+    <div class="code-title">Bubble Sort in Java</div>
+    <pre id="code1">public class BubbleSort {
+    public static void main(String[] args){
+        int[] arr = {5, 2, 8, 7, 1};
+        for(int i=0; i&lt;arr.length-1; i++){
+            for(int j=0; j&lt;arr.length-i-1; j++){
+                if(arr[j] > arr[j+1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }
+}</pre>
+    <button onclick="copyCode('code1')">Copy</button>
+</div>
+
+<div class="code-box">
+    <div class="code-title">Sample SQL Query</div>
+    <pre id="code2">SELECT name, roll_no
+FROM students
+WHERE marks &gt; 70;</pre>
+    <button onclick="copyCode('code2')">Copy</button>
+</div>
+
+<!-- ✨ ADD MORE CODE BLOCKS LIKE THIS ONE ✨
+<div class="code-box">
+    <div class="code-title">TITLE HERE</div>
+    <pre id="unique_id">PASTE CODE HERE</pre>
+    <button onclick="copyCode('unique_id')">Copy</button>
+</div>
+✨ COPY-PASTE THIS TEMPLATE FOR NEW CODES ✨ -->
+
+<!-- ✨ END OF CODE SECTION ✨ -->
+
+<script>
+function copyCode(id) {
+    let text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+    alert("Copied!");
+}
+</script>
+
+</body>
+</html>
