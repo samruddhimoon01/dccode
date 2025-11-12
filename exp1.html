@@ -1,0 +1,63 @@
+Internal to internal memory data transfer
+
+ORG 00h
+MOV R0,#30h
+MOV R1,#50h
+MOV R2,#0Ah
+BACK:
+ MOV A,@R0
+ MOV @R1,A
+ INC R0
+ INC R1
+DJNZ R2,BACK
+END
+
+
+Internal to external memory data transfer
+
+ORG 00h
+MOV R0,#30h
+MOV R1,#0Ah
+MOV DPTR,#0100h
+BACK: 
+ MOV A,@R0
+ MOVX @DPTR,A
+ INC R0
+ INC DPTR
+DJNZ R1,BACK
+END
+
+External to internal memory data transfer
+
+ORG 00h
+MOV R0,#30h
+MOV R1,#0Ah
+MOV DPTR,#0100h
+BACK: 
+MOVX A,@DPTR
+MOV @R0,A
+INC R0
+INC DPTR
+DJNZ R1,BACK
+END
+
+
+External to external memory data transfer
+
+org 00h
+mov DPTR,#0100h
+mov R0, #00h
+mov R1,#05h
+mov R2,#0Ah
+AGAIN:movx A,@DPTR
+ push DPL
+ push DPH
+ mov DPL,R0
+ mov DPH,R1
+ movx @DPTR,A
+ pop DPH
+ pop DPL
+ inc DPTR
+ inc R0
+ DJNZ R2,AGAIN
+ End
